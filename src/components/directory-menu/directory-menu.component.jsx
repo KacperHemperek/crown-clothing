@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { MenuItem } from "../menu-item/menu-item.component";
+import MenuItem from "../menu-item/menu-item.component";
 
 import "./directory.styles.scss";
 
-export class DirectoryMenu extends Component {
+class DirectoryMenu extends Component {
   constructor() {
     super();
     this.state = {
@@ -46,17 +46,12 @@ export class DirectoryMenu extends Component {
   render() {
     return (
       <div className="directory-menu">
-        {this.state.items.map(({ title, id, imageUrl, size }) => {
-          return (
-            <MenuItem
-              size={size}
-              key={id}
-              title={title.toUpperCase()}
-              imageUrl={imageUrl}
-            />
-          );
+        {this.state.items.map(({ id, ...sectionProp }) => {
+          return <MenuItem key={id} {...sectionProp} />;
         })}
       </div>
     );
   }
 }
+
+export default DirectoryMenu;
