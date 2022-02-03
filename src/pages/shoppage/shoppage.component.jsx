@@ -10,9 +10,13 @@ class ShopPage extends Component {
     };
   }
   render() {
-    return DATA_SHOP.map((item) => {
-      return <h1 key={item.id}>{item.title}</h1>;
-    });
+    return (
+      <div className="shop-page">
+        {DATA_SHOP.map(({ id, ...otherCollectionProps }) => {
+          return <CollectionPreview key={id} {...otherCollectionProps} />;
+        })}
+      </div>
+    );
   }
 }
 
