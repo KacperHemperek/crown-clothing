@@ -31,7 +31,6 @@ class App extends Component {
         setCurrentUser(user);
       }
     });
-    console.log(this.props.currentUser);
   }
 
   componentWillUnmount() {
